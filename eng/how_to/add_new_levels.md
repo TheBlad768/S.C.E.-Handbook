@@ -1,46 +1,46 @@
-# Как добавить ещё уровней?
+# How to add a new level?
 
-Чтобы добавить новый уровень, нужно проделать несколько несложных шагов:
-1. Изменить количество уровней
-2. Создать файлы нового уровня
-3. Добавить соответствующие данные новой зоны в различных файлах
-# Первые шаги
-## Берём файлы
+To add a new level, you need to follow a few simple steps:
+1. Change the total number of levels
+2. Create the files for the new level
+3. Add the corresponding data for the new zone in the relevant files
+# First steps
+## Working with files
 
-Для примера, мы скопируем уже имеющийся Levels/DEZ и переименуем его в AIZ, не из воздуха же файлы брать?
+For example, we’ll copy the existing Levels/DEZ and rename it to AIZ. We can't just pull the files out of thin air, right?
 
-Не забудьте также переименовать файлы в папке Levels/AIZ, а также содержимое `.asm` файлов в ней. 
+Don't forget to also rename the files inside the Levels/AIZ folder, as well as the contents of the `.asm` files within it.
 
-Вот список файлов в которые нужно внести замену DEZ на AIZ:
+Here is the list of files where you need to replace DEZ with AIZ:
 * Levels/AIZ/Debug/AIZ1 - Debug List.asm
 * Levels/AIZ/Events/AIZ1 - Events.asm
 * Levels/AIZ/Palettes/AIZ1 - Animation Palette Scripts.asm
 - Levels/AIZ/Tiles/Animated/AIZ1 - Animation PLC Scripts.asm
 
-А также для:
+And also for:
 - Levels/AIZ/Pointers/AIZ1 - Pointers.asm
 - Levels/AIZ/Pointers/AIZ1 - Pointers.asm
 - Levels/AIZ/Pointers/AIZ1 - Pointers.asm
 - Levels/AIZ/Pointers/AIZ1 - Pointers.asm
-Пока не меняйте в ним `mus_DEZ1` на `mus_AIZ1`, мы это сделаем в [гайде по добавлению музыки](типа_гайд).
-## Вносим изменения в код
+Do not change `mus_DEZ1` to `mus_AIZ1` in these files yet; we will do that in the [guide on adding music].
+## Changing the code
 
-Для начала нам нужно изменить количество уровней в [Engine/Settings.asm]([Engine/Settings.asm)
+To start, we need to change the number of levels in [Engine/Settings.asm]([Engine/Settings.asm)
 
 ```
 ZoneCount:				= 1	; set discrete zones are: DEZ
 ```
 
-Меняем единицу на нужное нам количество.
+Change the "1" to the number of levels you need.
 
 ```
 ZoneCount:				= 2	; set discrete zones are: DEZ, New Zone
 ```
 
 > [!TIP]
-> Добавляйте по одному уровню выполнив все шаги, укажите сразу большое количество, то потом легко потеряйтесь и не получите никакого результата.
+>Add levels one at a time by completing all the steps for each. If you specify a large number of levels all at once, you’ll easily get lost and won't get any results.
 
-Если попытаться сейчас собрать ROM, то ничего не получится, так как сборщик ожидает ещё одного уровня и ищет его данные, которые мы ещё не добавили!
+If you try to build the ROM now, it will fail because the assembler expects another level and is looking for data that we haven't added yet!
 
 ```console
 The current RAM available $275C bytes.
@@ -57,11 +57,11 @@ fatal error, assembly terminated
 **********************************************************************
 ```
 
-# Добавляем данные
+# Adding a new data
 
-Просто скопируйте строки от DEZ и переименуйте их в AIZ, в следующем параграфе будет пример.
+Simply copy the lines from DEZ and rename them to AIZ; an example will be provided in the next paragraph.
 
-Нужно добавить данные новой зоны в существующие файлы:
+You need to add the data for the new zone to the following existing files:
 - Data/Debug Pointers.asm
 - Data/Levels Data.asm
 - Data/Levels Events.asm
@@ -75,13 +75,14 @@ fatal error, assembly terminated
 - Objects/Main/Title Card/Text Data/VRAM - Text.asm
 - Screens/Level Select/Level Setup.asm
 
-# Пример изменений
+# Example of changes
 
-Можете посмотреть изменения в этом параграфе или в коммитах на GitHub [ТУТ](https://github.com/Nichloya/Sonic-Clean-Engine-S.C.E.-Extended-/commit/ba6bcbc4962d853336950f894c7d24859b082f7e) и [ТУТ](https://github.com/Nichloya/Sonic-Clean-Engine-S.C.E.-Extended-/commit/e6bdac551d5c4ff7daa77b8b18e053d3394683ea).
+You can view the changes in this paragraph or in the GitHub commits [HERE](https://github.com/Nichloya/Sonic-Clean-Engine-S.C.E.-Extended-/commit/ba6bcbc4962d853336950f894c7d24859b082f7e) and [HERE](https://github.com/Nichloya/Sonic-Clean-Engine-S.C.E.-Extended-/commit/e6bdac551d5c4ff7daa77b8b18e053d3394683ea).
 
 ```diff
-+ Добавьте зелёные строки, начинающиеся с плюса (сам плюс добавлять не надо).
-- Красные строки наоборот, вы должны удалить.
++ Add the green lines
+  
+- Remove the red lines
 ```
 
 ## Data/Debug Pointers.asm
@@ -433,8 +434,8 @@ LevelSelect_MainText:
 		levselstr "   UNKNOWN LEVEL      - UNKNOWN"
 ```
 
-# Устранение проблем
-## Количество уровней указано правильно, но LevelLoadPointer не видит уровни
+# Troubleshooting
+## Level count is correct, but LevelLoadPointer fails to detect levels
 
 ```console
 Assembler failed to execute.
@@ -443,8 +444,8 @@ Assembler failed to execute.
 fatal error, assembly terminated
 ```
 
-Скорее всего вы копируйте уровень из `S.C.E. (Alone)` в `S.C.E.-Extended`/`S3S1` или наоборот, поэтому нужно внести изменения в `/Levels/%имя_зоны%/Pointers/%имя_зоны% - Pointers.asm`, найдите там `; Players palette` и внесите изменения которые представлены ниже.
-### Если у вас S.C.E. (Alone)
+Most likely, you are copying a level from `S.C.E. (Alone)` to `S.C.E.-Extended`/`S3S1` (or vice versa). Therefore, you need to make changes in `/Levels/%zone_name%/Pointers/%zone_name% - Pointers.asm`. Find the `; Players palette` section and apply the changes shown below.
+### For S.C.E. (Alone)
 ```
 		; Sonic palette, Knuckles palette
 		dc.b PalID_Sonic
@@ -457,7 +458,7 @@ fatal error, assembly terminated
 		; Players start location
 		binclude "Levels/AIZ/Start Location/1.bin"
 ```
-### Если у вас S.C.E.-Extended/S3S1
+### For S.C.E.-Extended/S3S1
 
 ```
 		; Players palette
@@ -473,6 +474,6 @@ fatal error, assembly terminated
 		binclude "Levels/DEZ/Start Location/Knuckles/1.bin"
 ```
 
-## У меня не отображаются буквы на титульной карточке
+## Title card letters are not displaying
 
-[Тут гайд по работе с титульными карточками.](фак)
+[Here is a guide on working with title cards.](фак)
