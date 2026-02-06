@@ -207,6 +207,6 @@ DEZ1_BGDeformArray:
 ```
 
 
-## The letters on the title card are not displayed
+## View other guides
 
-[Here is a guide on how to work with title cards.](test)
+[Back to main page](../)
