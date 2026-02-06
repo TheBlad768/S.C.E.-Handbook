@@ -12,7 +12,7 @@ https://sonicresearch.org/community/index.php?threads/how-to-work-with-backgroun
 
 ```asm
 ; ---------------------------------------------------------------------------
-; Deform scanlines correctly using a list
+; Deform scanlines correctly using a list (S3K/SCE version)
 ; ---------------------------------------------------------------------------
 
 ; =============== S U B R O U T I N E =======================================
@@ -67,11 +67,11 @@ DS_Finish:
 ```
 
 \
-MarkeyJester также сделал обновлённую версию DeformScroll, но никогда не выпускал это официально. Вы можете использовать этот код без каких либо проблем.
+MarkeyJester также сделал обновлённую версию `DeformScroll`, но никогда не выпускал это официально. Вы можете использовать этот код без каких либо проблем.
 
 ```asm
 ; ---------------------------------------------------------------------------
-; Deform scanlines correctly using a list
+; Deform scanlines correctly using a list (S3K/SCE version)
 ; ---------------------------------------------------------------------------
 
 ; =============== S U B R O U T I N E =======================================
