@@ -9,7 +9,7 @@
 
 </details>
 
-### This compression was removed because having two compressions(Kosinski Plus Module and Nemesis) that do literally the same thing makes no sense. Also, Nemesis compression is VERY slow. Removing this compression made SCE better.
+This compression was removed because having two compressions(Kosinski Plus Module and Nemesis) that do literally the same thing makes no sense. Also, Nemesis compression is VERY slow. Removing this compression made SCE better.
 
 #### Here is the old GitHub branch with Nemesis, if you need it:
 
