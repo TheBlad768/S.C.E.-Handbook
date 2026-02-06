@@ -75,9 +75,9 @@ The `draw_planetext.palette_line_1` flag will change the first line of the palet
 The `draw_planetext.end` flag tells the program to stop loading characters and finish executing the program. That is, simply `exit from program`
 
 
-## The letters on the title card are not displayed
+## View other guides
 
-[Here is a guide on how to work with title cards.](test)
+[Back to main page](../)
 
 
 
