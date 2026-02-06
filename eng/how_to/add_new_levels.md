@@ -476,6 +476,6 @@ Most likely, you are copying a level from `S.C.E. (Alone)` to `S.C.E.-Extended`/
 		binclude "Levels/DEZ/Start Location/Knuckles/1.bin"
 ```
 
-## Title card letters are not displaying
+## View other guides
 
-[Here is a guide on working with title cards.](фак)
+[Back to main page](../)
