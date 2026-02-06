@@ -5,7 +5,7 @@
 
 ![1]
 
-[1]: _img/nemesis.jpeg
+[1]: ../../_img/nemesis.jpeg
 
 </details>
 
