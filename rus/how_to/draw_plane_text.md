@@ -8,7 +8,7 @@
 \
 Использовать код очень просто:
 
-```
+```asm
 		; load text
 		lea	Main_Text(pc),a1			; load text address to a1
 		locVRAM	(VRAM_Plane_A_Name_Table+$D38),d1	; set plane address
@@ -22,7 +22,7 @@
 \
 Или же мы можем воспользоваться простым макросом:
 
-```
+```asm
 		; load text
 		DrawPlaneText	Main_Text, (VRAM_Plane_A_Name_Table+$D38), $50F, 1, FALSE
 ```
@@ -34,7 +34,7 @@
 \
 Использовать код тоже очень просто:
 
-```
+```asm
 		; load text
 		lea	Main_Text(pc),a1			; загрузить адрес текста в a1
 		locVRAM	(VRAM_Plane_A_Name_Table+$D38),d1	; установить адрес на плане
@@ -51,7 +51,7 @@
 \
 Или же мы можем воспользоваться простым макросом:
 
-```
+```asm
 		; load text
 		DrawPlaneTextAdvanced	Main_Text, (VRAM_Plane_A_Name_Table+$D38), 32, 32, $50F, 1, FALSE
 ```
@@ -63,7 +63,7 @@
 \
 Разбор дополнительных флагов в самих данных текста:
 
-```
+```asm
 Main_Text:
 		dc.b "Hello1"
 		dc.b draw_planetext.nextline|1, draw_planetext.palette_line_1		; next line, select palette line
