@@ -15,6 +15,6 @@
 
 - [Nemesis Decompression](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/9bc3d666b30c25893942aa04cecab667734e38a7/Data/Decompression/Nemesis%20Decompression.asm)
 
-## The letters on the title card are not displayed
+## View other guides
 
-[Here is a guide on how to work with title cards.](test)
+[Back to main page](../)
