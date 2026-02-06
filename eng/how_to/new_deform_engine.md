@@ -184,10 +184,11 @@ DEZ1_Transition:
 DEZ1_Deform:
 
 		; yscroll
-		move.w	(Camera_Y_pos_copy).w,d0		; 100% to d0 ($1000)
-		asr.w	#6,d0					; get 1.5625% ($40)
-		move.w	d0,(Camera_Y_pos_BG_copy).w		; save 1.5625%
+		move.w	(Camera_Y_pos_copy).w,d0		; load Y position
+		asr.w	#6,d0					; divide by $40
+		move.w	d0,(Camera_Y_pos_BG_copy).w		; set speed
 
+		; xscroll
 		move.w	(Camera_X_pos_copy).w,d0		; load X position
 		neg.w	d0					; reverse direction
 		asr.w	#$03,d0					; divide by 8
