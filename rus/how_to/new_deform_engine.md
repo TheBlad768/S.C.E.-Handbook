@@ -203,7 +203,7 @@ DEZ1_Deform:
 DEZ1_BGDeformArray:
 		dc.w H_scroll_table,  $70			; top 70 scroll
 		dc.w H_scroll_table+2,  $70			; bottom 70 scroll
-		dc.w $0000
+		dc.w $0000					; end marker
 ```
 
 
