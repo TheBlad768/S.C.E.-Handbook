@@ -10,7 +10,7 @@ https://sonicresearch.org/community/index.php?threads/how-to-work-with-backgroun
 \
 Here is the adapted `DeformScroll` code for SCE:
 
-```
+```asm
 ; ---------------------------------------------------------------------------
 ; Deform scanlines correctly using a list
 ; ---------------------------------------------------------------------------
@@ -69,7 +69,7 @@ DS_Finish:
 \
 MarkeyJester also made an updated version of DeformScroll, but never released it officially. You can use this code without any problems.
 
-```
+```asm
 ; ---------------------------------------------------------------------------
 ; Deform scanlines correctly using a list
 ; ---------------------------------------------------------------------------
@@ -128,7 +128,7 @@ The finished asm libraries are also located in [this folder](../../_code/deform)
 \
 Example of code usage in SCE:
 
-```
+```asm
 ; ---------------------------------------------------------------------------
 ; DEZ events
 ; ---------------------------------------------------------------------------
