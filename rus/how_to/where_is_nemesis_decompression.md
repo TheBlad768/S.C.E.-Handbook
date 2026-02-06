@@ -15,6 +15,6 @@
 
 - [Nemesis Decompression](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/9bc3d666b30c25893942aa04cecab667734e38a7/Data/Decompression/Nemesis%20Decompression.asm)
 
-## У меня не отображаются буквы на титульной карточке
+## Посмотреть другие гайды
 
-[Тут гайд по работе с титульными карточками.](фак)
+[Вернуться на главную страницу](../)
