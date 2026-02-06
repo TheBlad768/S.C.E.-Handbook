@@ -12,7 +12,7 @@ Here is the adapted `DeformScroll` code for SCE:
 
 ```asm
 ; ---------------------------------------------------------------------------
-; Deform scanlines correctly using a list
+; Deform scanlines correctly using a list (S3K/SCE version)
 ; ---------------------------------------------------------------------------
 
 ; =============== S U B R O U T I N E =======================================
@@ -67,11 +67,11 @@ DS_Finish:
 ```
 
 \
-MarkeyJester also made an updated version of DeformScroll, but never released it officially. You can use this code without any problems.
+MarkeyJester also made an updated version of `DeformScroll`, but never released it officially. You can use this code without any problems.
 
 ```asm
 ; ---------------------------------------------------------------------------
-; Deform scanlines correctly using a list
+; Deform scanlines correctly using a list (S3K/SCE version)
 ; ---------------------------------------------------------------------------
 
 ; =============== S U B R O U T I N E =======================================
