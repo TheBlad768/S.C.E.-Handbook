@@ -71,6 +71,7 @@ Main_Text:
 		dc.b draw_planetext.end							; stop loading characters
 ```
 
+\
 `Hello1` will be drawn on the first line of the palette at address $50F in VRAM. The size of the characters in VRAM will be 32x32 pixels (the code works as a mapping function, it does not scale the text itself).
 
 The `draw_planetext.nextline` flag will move the starting position of the plan to the next row.
