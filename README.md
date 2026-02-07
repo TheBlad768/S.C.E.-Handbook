@@ -28,3 +28,9 @@ Here you will find various guides for working with Sonic Clean Engine (S.C.E.).
 #### If you are interested in the Sonic 1 in Sonic 3 & Knuckles (S.C.E. Version) with the Sonic 2 Clone Driver v2 (Mega PCM 2.0 version):
 
 - [Sonic-1-in-Sonic-3-S.C.E.-Clone-Driver-v2-](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/Clone-Driver-v2)
+
+## Links
+
+- [YouTube channel](https://www.youtube.com/@TheBlad768)
+- [Telegram channel](http://t.me/theblad768channel)
+- [Red Miso Studios Discord](https://discords.com/servers/redmisostudios)
