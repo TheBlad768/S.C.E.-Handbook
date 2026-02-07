@@ -66,7 +66,7 @@
 ```asm
 Main_Text:
 		dc.b "Hello1"
-		dc.b draw_planetext.nextline|1, draw_planetext.palette_line_1		; следующая линия, изменить линию палитры
+		dc.b draw_planetext.nextline|1, draw_planetext.palette_line_1		; следующая строка, изменить линию палитры
 		dc.b "Hello2"
 		dc.b draw_planetext.end							; остановить выполнение программы
 ```
