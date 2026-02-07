@@ -8,7 +8,7 @@ The first function is `Draw_PlaneText`, which displays simple text with a size o
 \
 Using this code is very easy:
 
-```asm
+```m68k
 		; load text
 		lea	Main_Text(pc),a1			; load text address to a1
 		locVRAM	(VRAM_Plane_A_Name_Table+$D38),d1	; set plane address
@@ -22,7 +22,7 @@ In register `a1` we have the address of our text, in `d1` the address of the pla
 \
 We can also use a simple macro:
 
-```asm
+```m68k
 		; load text
 		DrawPlaneText	Main_Text, (VRAM_Plane_A_Name_Table+$D38), $50F, 1, FALSE
 ```
@@ -34,7 +34,7 @@ The second function is `Draw_PlaneText_Advanced`, which is used to display text 
 \
 Using the code is also very easy:
 
-```asm
+```m68k
 		; load text
 		lea	Main_Text(pc),a1			; load text address to a1
 		locVRAM	(VRAM_Plane_A_Name_Table+$D38),d1	; set plane address
@@ -51,7 +51,7 @@ Using the code is also very easy:
 \
 Alternatively, we can use a simple macro:
 
-```asm
+```m68k
 		; load text
 		DrawPlaneTextAdvanced	Main_Text, (VRAM_Plane_A_Name_Table+$D38), 32, 32, $50F, 1, FALSE
 ```
@@ -63,7 +63,7 @@ In register `a1`, we have the address of our text; in `d1`, we have the address 
 \
 Analysis of additional flags in the text data:
 
-```asm
+```m68k
 Main_Text:
 		dc.b "Hello1"
 		dc.b draw_planetext.nextline|1, draw_planetext.palette_line_1		; next line, select palette line

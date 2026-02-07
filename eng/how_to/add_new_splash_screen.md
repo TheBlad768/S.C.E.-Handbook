@@ -7,7 +7,7 @@ First, we need to open the `Screens` folder and create a new folder, for example
 Then we need to create a text file and rename it to `Splash.asm` and paste this ready-made code into `Splash.asm`:
 
 \
-```asm
+```m68k
 ; ---------------------------------------------------------------------------
 ; Splash Screen
 ; ---------------------------------------------------------------------------
@@ -225,13 +225,13 @@ Game_Modes:
 \
 If you want to change the startup screen, change this line of code in the `Security Startup 2.asm` file.
 
-```asm
+```m68k
 		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
 ```
 
 To this line of code:
 
-```asm
+```m68k
 		move.b	#GameModeID_SplashScreen,(Game_mode).w				; set screen mode to Splash Screen
 ```
 

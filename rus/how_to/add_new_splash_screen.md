@@ -7,7 +7,7 @@
 Затем мы должны создать текстовый файл и переименовать его в `Splash.asm` и вставить этот готовый код в `Splash.asm`:
 
 \
-```asm
+```m68k
 ; ---------------------------------------------------------------------------
 ; Splash Screen
 ; ---------------------------------------------------------------------------
@@ -225,13 +225,13 @@ Game_Modes:
 \
 Если вы хотите изменить начальный экран загрузки, измените эту строчку кода в том же `Security Startup 2.asm`
 
-```asm
+```m68k
 		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
 ```
 
 На эту строчку кода:
 
-```asm
+```m68k
 		move.b	#GameModeID_SplashScreen,(Game_mode).w				; set screen mode to Splash Screen
 ```
 
