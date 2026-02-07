@@ -1,10 +1,10 @@
 # SONIC-CLEAN-ENGINE-S.C.E.-
 
-# Как добавить новый Splash Screen?
+# How to add a new Splash Screen?
 
-Для начала нам нужно открыть папку `Screens` и создать новую папку, например: `Splash` для нашего нового Splash Screen. Затем мы должны создать текстовый файл и переименовать его в `Splash.asm`
+First, we need to open the `Screens` folder and create a new folder, for example: `Splash` for our new Splash Screen. Then we need to create a text file and rename it to `Splash.asm`
 
-И вставить этот готовый код в `Splash.asm`:
+And paste this ready-made code into `Splash.asm`:
 
 \
 ```asm
@@ -104,15 +104,15 @@ SplashScreen:
 ```
 
 \
-# Пример изменений
+# Example of changes
 
 ```diff
-+ Добавьте зелёные строки, начинающиеся с плюса (сам плюс добавлять не надо).
-- Красные строки наоборот, вы должны удалить.
++ Add the green lines
+- Remove the red lines
 ```
 
 \
-Затем нам нужно открыть `Includes.asm` в основной папке `Engine` и найти список включаемых экранов
+Now, we need to open the `Includes.asm` file in the main `Engine` folder and find the list of included screens
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -129,7 +129,7 @@ SplashScreen:
 ```
 
 \
-Теперь нам нужно добавить наш Splash Screen в этот список `includes`
+Now we need to add our Splash Screen to this `includes` list
 
 
 ```diff
@@ -153,7 +153,7 @@ SplashScreen:
 ```
 
 \
-Дальше нам нужно открыть `Constants.asm` и добавить наш новый экран в список констант `Game mode routines`
+Next, we need to open `Constants.asm` and add our new screen to the list of constants `Game mode routines`
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -172,7 +172,7 @@ GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
 \
-Это должно выглядеть так:
+It should look like this now:
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -192,9 +192,9 @@ GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
 \
-Теперь нужно включить экран в `Game mode routines`. Это находится по пути `Engine/Core` и нужно открыть `Security Startup 2.asm`
+Now you need to include the screen in `Game mode routines`. This is located in `Engine/Core`, and you need to open the `Security Startup 2.asm` file.
 
-Здесь будет список экранов:
+Here you will find a list of screens:
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -206,7 +206,7 @@ Game_Modes:
 		GameModeEntry LevelScreen						; Zone play mode
 ```
 
-Сделайте так:
+It should look like this now:
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -220,29 +220,29 @@ Game_Modes:
 ```
 
 \
-Макрос `GameModeEntry` будет использовать вставленную переменную для поиска экрана. Поэтому названия должы быть одинаковые.
+`GameModeEntry` macro will use the inserted variable to search for the screen. Therefore, the names must be identical.
 
 \
-Если вы хотите изменить начальный экран загрузки, измените эту строчку кода в том же `Security Startup 2.asm`
+If you want to change the startup screen, change this line of code in the `Security Startup 2.asm` file.
 
 ```asm
 		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
 ```
 
-На эту строчку кода:
+To this line of code:
 
 ```asm
 		move.b	#GameModeID_SplashScreen,(Game_mode).w				; set screen mode to Splash Screen
 ```
 
 \
-Вместо `Level Select` теперь первым будет грузиться наш новый `Splash Screen`.
+Instead of `Level Select`, our new `Splash Screen` will now load first.
 
 \
-Дальше нам нужно добавить графические данные для Splash Screen. Нужно открыть папку `Data` и включить наши новые данные в SCE.
+Next, we need to add graphic data for the Splash Screen. Open the `Data` folder and include our new data in SCE.
 
 \
-Для графики это `Kosinski Plus Module Data.asm`
+For art, this is `Kosinski Plus Module Data.asm`
 
 ```diff
 ; ===========================================================================
@@ -255,7 +255,7 @@ Game_Modes:
 ```
 
 \
-Для маппингов это `Enigma Data.asm`
+For mappings, this is `Enigma Data.asm`
 
 ```diff
 ; ===========================================================================
@@ -268,7 +268,7 @@ Game_Modes:
 ```
 
 \
-Для палитры это `Palette Data.asm`
+For the palette, it is `Palette Data.asm`
 
 ```diff
 ; ===========================================================================
@@ -281,9 +281,9 @@ Game_Modes:
 ```
 
 \
-Как создавать графические файлы для Splash Screen смотрите в `этом гайде`
+How to create graphic data files for Splash Screen, see `this guide`.
 
 
-## Посмотреть другие гайды
+## View other guides
 
-[Вернуться на главную страницу](../)
+[Back to main page](../)

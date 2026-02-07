@@ -83,7 +83,6 @@ You can view the changes in this paragraph or in the GitHub commits [HERE](https
 
 ```diff
 + Add the green lines
-  
 - Remove the red lines
 ```
 
@@ -92,7 +91,7 @@ You can view the changes in this paragraph or in the GitHub commits [HERE](https
 ```diff
 		; DEZ
 		include "Levels/DEZ/Debug/DEZ1 - Debug List.asm"
-		
+
 +		; AIZ
 +		include "Levels/AIZ/Debug/AIZ1 - Debug List.asm"
 ```
@@ -125,7 +124,7 @@ LevelLoadPointer:
 		incfile.b	DEZ_8x8_KosPM, "Levels/DEZ/Tiles/Primary.kospm"
 		incfile.b	DEZ_16x16_Unc, "Levels/DEZ/Blocks/Primary.unc"
 		incfile.b	DEZ_128x128_KosP, "Levels/DEZ/Chunks/Primary.kosp"
-		
+
 +		incfile.b	AIZ_8x8_KosPM, "Levels/AIZ/Tiles/Primary.kospm"
 +		incfile.b	AIZ_16x16_Unc, "Levels/AIZ/Blocks/Primary.unc"
 +		incfile.b	AIZ_128x128_KosP, "Levels/AIZ/Chunks/Primary.kosp"
@@ -138,7 +137,7 @@ LevelLoadPointer:
 
 ;		Attribute	| Filename	| Folder
 
-		incfile.b	DEZ_Solid_Unc, "Levels/DEZ/Collision/1.unc"		
+		incfile.b	DEZ_Solid_Unc, "Levels/DEZ/Collision/1.unc"
 +		incfile.b	AIZ_Solid_Unc, "Levels/AIZ/Collision/1.unc"
 ```
 
@@ -158,7 +157,7 @@ LevelLoadPointer:
 +		incfile.b	AIZ1_Layout_Unc, "Levels/AIZ/Layout/1.unc"
 +		incfile.b	AIZ2_Layout_Unc, "Levels/AIZ/Layout/2.unc"
 +		incfile.b	AIZ3_Layout_Unc, "Levels/AIZ/Layout/3.unc"
-+		incfile.b	AIZ4_Layout_Unc, "Levels/AIZ/Layout/4.unc"	
++		incfile.b	AIZ4_Layout_Unc, "Levels/AIZ/Layout/4.unc"
 ```
 
 ```diff
@@ -179,7 +178,7 @@ LevelLoadPointer:
 +		incfile.bo	AIZ1_Objects_Unc, "Levels/AIZ/Object Pos/1.unc"
 +		incfile.bo	AIZ2_Objects_Unc, "Levels/AIZ/Object Pos/2.unc"
 +		incfile.bo	AIZ3_Objects_Unc, "Levels/AIZ/Object Pos/3.unc"
-+		incfile.bo	AIZ4_Objects_Unc, "Levels/AIZ/Object Pos/4.unc"	
++		incfile.bo	AIZ4_Objects_Unc, "Levels/AIZ/Object Pos/4.unc"
 ```
 
 
@@ -208,7 +207,7 @@ LevelLoadPointer:
  		include "Levels/DEZ/Tiles/Animated/DEZ1 - Animation PLC Scripts.asm"
  		include "Levels/DEZ/Palettes/Animated/DEZ1 - Animation Palette Scripts.asm"
  		include "Levels/DEZ/Events/DEZ1 - Events.asm"
- 		
+
 +		; AIZ
 +		include "Levels/AIZ/Tiles/Animated/AIZ1 - Animation PLC Scripts.asm"
 +		include "Levels/AIZ/Palettes/Animated/AIZ1 - Animation Palette Scripts.asm"
@@ -225,7 +224,7 @@ LevelLoadPointer:
 		incfile.be	Pal_DEZ, "Levels/DEZ/Palettes/Death Egg Zone.pal"
 		incfile.be	Pal_WaterDEZ, "Levels/DEZ/Palettes/Water Death Egg Zone.pal"
 +		incfile.be	Pal_AIZ, "Levels/AIZ/Palettes/Angel Island Zone.pal"
-+		incfile.be	Pal_WaterAIZ, "Levels/AIZ/Palettes/Water Angel Island Zone.pal"	
++		incfile.be	Pal_WaterAIZ, "Levels/AIZ/Palettes/Water Angel Island Zone.pal"
 
 ; ===========================================================================
 ; Animated palette Level screen data

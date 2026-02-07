@@ -86,11 +86,3 @@ The `draw_planetext.end` flag tells the program to stop loading characters and f
 ## View other guides
 
 [Back to main page](../)
-
-
-
-
-
-
-
-
