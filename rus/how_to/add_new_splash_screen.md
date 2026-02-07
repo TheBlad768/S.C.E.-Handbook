@@ -2,9 +2,15 @@
 
 # Как добавить новый Splash Screen?
 
-{:toc}
+- [[add_new_splash_screen#Создание файлов|Создание файлов]]
+	- [[add_new_splash_screen##Splash.asm|Splash.asm]]
+	- [[add_new_splash_screen##Дерево папки Splash Screen|Дерево папки Splash Screen]]
+- [[add_new_splash_screen#Прописываем графические данные|Прописываем графические данные]]
+- [[add_new_splash_screen#Включаем Splash Screen|Включаем Splash Screen]]
+	- [[add_new_splash_screen##Меняем начальный режим игры (необязательно)|Меняем начальный режим игры (необязательно)]]
 
 [← Вернуться ](..)
+
 # Создание файлов
 
 Для начала создадим папку `Splash Screen` в директории [Screens](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens). В неё мы поместим все наши новые файлы.
