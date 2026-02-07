@@ -4,9 +4,46 @@
 
 # Создание файлов
 
-Для начала в папке [Screens](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens) создать папку `Splash`. 
+Для начала создадим папку `Splash Screen` в директории [Screens](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens). В неё мы поместим все наши новые файлы.
 
-Теперь в папке `Splash`  создадим текстовый файл под именем `Splash.asm` и вставим в него этот готовый код:
+```
+📁 S.C.E. / S1-in-S3 (корень)
+└── 📁 Screens
+	├── 📁 Continue
+	├── 📁 Level
+	├── 📁 Level Select
+	└── 📁 Splash Screen	<= СОЗДАЙ МЕНЯ 🥺
+```
+
+Для **Splash Screen'а** нужны данные, такие как: _графика, карта, палитра_. В этом гайде мы добавляем уже готовые данные, если вы хотите сделать свою картинку, то вам нужно _создать свои новые файлы_, это уже в гайде `"Как построить план?"`. 
+
+Для этого гайда я скопирую готовые данные из исходника [Sonic-1-in-Sonic-3-S.C.E.-](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega).
+
+Скопирую в наш `Splash Screen` директории `Enigma Map` и `KosinskiPM Art` из [Screens/Sega/S3K](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega/S3K) (в Sonic-1-in-Sonic-3-S.C.E.- исходнике):
+
+```
+📁 S1-in-S3 (корень)
+└── 📁 Screens
+	└── 📁 Sega
+	    └── 📁 S3K
+	        ├── 📁 Enigma Map		<<= КОПИРУЮ
+	        └── 📁 KosinskiPM Art	<<= КОПИРУЮ
+```
+ 
+[Palettes](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select/Palettes "Palettes") скопирую из [Screens/Level Select](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select "Level Select"), который можно найти в родительской директории.
+
+```
+📁 S.C.E. / S1-in-S3 (корень)
+└── 📁 Screens
+	└── 📁 Level Select
+	└── 📁 SCE
+		├── 📁 KosinskiPM Art
+		└── 📁 Palettes	<<= КОПИРУЮ
+```
+
+## Splash.asm
+
+Теперь в нашей `Screens/Splash Screen` создадим текстовый файл с именем `Splash.asm` и вставим в него этот готовый код:
 
 ```m68k
 ; ---------------------------------------------------------------------------
@@ -104,20 +141,43 @@ SplashScreen:
 		rts
 ```
 
-В качестве примера, в папку `Splash`  я скопирую папки Enigma Map и KosinskiPM Art [отсюда](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega/S3K), а [Palettes](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select/Palettes "Palettes") скопирую из [Level Select](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select "Level Select"). 
+## Дерево папки Splash Screen
 
-Если хотите сделать свою графику для Splash Screen, то вот тут `гайд как это сделать`.
+Вот такое содержимое папки `Screens/Splash Screen` должно получиться:
+
+```
+📁 S.C.E. / S1-in-S3 (корень)
+└── 📁 Screens
+	├── 📁 Continue
+	├── 📁 Level
+	├── 📁 Level Select
+	└── 📁 Splash Screen
+		├── 📁 Enigma Map
+		│   └── 🗺️ Foreground.eni
+		├── 📁 KosinskiPM Art
+		│   └── 🖼️ Foreground.kospm
+		├── 📁 Palettes
+		│   └── 🎨 1.pal
+		└── 📄 Splash.asm
+```
 
 # Прописываем графические данные
 
-Сначала нам нужно добавить графические данные для Splash Screen. В папке [Data](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Data "Data") нужно будет добавить это в следующие файлы:
-
-> [!TIP]
-> Если не знайте куда влепить эти строки, то вставьте их перед строками Level Select
-
-Для графики это [Kosinski Plus Module Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Kosinski%20Plus%20Module%20Data.asm "Kosinski Plus Module Data.asm")
+Теперь нам нужно прописать данные **Splash Screen'a**. В папке [Data](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Data "Data") нужно будет добавить эти строки в следующие файлы:
 
 ```
+📁 S.C.E. / S1-in-S3 (корень)
+└──	📁 Data
+	├── 📄 Enigma Data.asm
+	├── 📄 Kosinski Plus Module Data.asm
+	└── 📄 Palette Data.asm
+```
+
+Если не знайте куда влепить эти строки, то вставьте их перед строками **Level Select**.
+
+- Графику в [Kosinski Plus Module Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Kosinski%20Plus%20Module%20Data.asm "Kosinski Plus Module Data.asm"):
+
+```m68k
 ; ===========================================================================
 ; Kosinski Plus Module compressed Splash screen graphics
 ; ===========================================================================
@@ -127,9 +187,9 @@ SplashScreen:
 		incfile.b	ArtKosPM_Splash, "Screens/Splash/KosinskiPM Art/Foreground.kospm"
 ```
 
-Для маппингов это [Enigma Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Enigma%20Data.asm "Enigma Data.asm")
+- Карту в [Enigma Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Enigma%20Data.asm "Enigma Data.asm"):
 
-```
+```m68k
 ; ===========================================================================
 ; Enigma compressed Splash screen data
 ; ===========================================================================
@@ -139,9 +199,9 @@ SplashScreen:
 		incfile.b	MapEni_Splash, "Screens/Splash/Enigma Map/Foreground.eni"
 ```
 
-Для палитры это [Palette Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Palette%20Data.asm "Palette Data.asm")
+- Палитры в [Palette Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Palette%20Data.asm "Palette Data.asm"):
 
-```
+```m68k
 ; ===========================================================================
 ; Palette Splash screen data
 ; ===========================================================================
@@ -150,16 +210,17 @@ SplashScreen:
 
 		incfile.b	Pal_Splash, "Screens/Splash/Palettes/1.pal"
 ```
-# Изменяем код
 
-Осталось внести изменения в код: прописать пути к графике и добавить новый игровой режим. Ниже будет инструкция как это сделать или просмотреть изменения в коммите на GitHub [ТУТ](https://github.com/Nichloya/Sonic-Clean-Engine-S.C.E.-Extended-/commit/7b0651c7c2229bdf41811d974231aafbace5bcb5).
+# Включаем Splash Screen
+
+Осталось подключить  добавить новый игровой режим. Ниже будет инструкция как это сделать или просмотреть изменения в коммите на GitHub [ТУТ](https://github.com/Nichloya/Sonic-Clean-Engine-S.C.E.-Extended-/commit/7b0651c7c2229bdf41811d974231aafbace5bcb5).
 
 ```diff
 + Добавьте зелёные строки, начинающиеся с плюса (сам плюс добавлять не надо).
 - Красные строки наоборот, вы должны удалить.
 ```
 
-Сначала подключим наш `Splash.asm`, добавив его в список includes в [Engine/Includes.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Includes.asm).
+Сначала подключим наш `Screens/Splash Screen/Splash.asm`, добавив его в список includes в [Engine/Includes.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Includes.asm).
 
 ```diff
  ; ---------------------------------------------------------------------------
@@ -202,10 +263,7 @@ SplashScreen:
  GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
-
-Теперь нужно включить экран в `Game mode routines`. Это находится в [Engine/Core/Security Startup 2.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Core/Security%20Startup%202.asm)
-
-Добавим его в список игровых режимов:
+Теперь нужно включить экран **Splash Screen'a** в `Game mode routines`, который находится в [Engine/Core/Security Startup 2.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Core/Security%20Startup%202.asm). Добавим его в список игровых режимов:
 
 ```diff
  ; ---------------------------------------------------------------------------
@@ -223,7 +281,7 @@ SplashScreen:
 
 ## Меняем начальный режим игры (необязательно)
 
- Если вы хотите чтобы игра начиналась со Splash Screen, а не Level Select, то измените эту строчку кода в том же `Security Startup 2.asm`
+Если вы хотите чтобы игра начиналась со **Splash Screen**, а не **Level Select**, то измените эту строчку кода в том же `Security Startup 2.asm`
 
 ```m68k
 move.b	#GameModeID_LevelSelectScreen,(Game_mode).w
@@ -235,7 +293,7 @@ move.b	#GameModeID_LevelSelectScreen,(Game_mode).w
 move.b	#GameModeID_SplashScreen,(Game_mode).w
 ```
 
-Вместо `Level Select` теперь первым будет грузиться наш новый `Splash Screen`.
+Вместо **Level Select** теперь первым будет грузиться наш новый **Splash Screen**.
 
 # Посмотреть другие гайды
 
