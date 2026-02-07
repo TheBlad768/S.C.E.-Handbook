@@ -2,6 +2,9 @@
 
 # Как добавить новый Splash Screen?
 
+{:toc}
+
+[← Вернуться ](..)
 # Создание файлов
 
 Для начала создадим папку `Splash Screen` в директории [Screens](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens). В неё мы поместим все наши новые файлы.
@@ -17,9 +20,9 @@
 
 Для **Splash Screen'а** нужны данные, такие как: _графика, карта, палитра_. В этом гайде мы добавляем уже готовые данные, если вы хотите сделать свою картинку, то вам нужно _создать свои новые файлы_, это уже в гайде `"Как построить план?"`. 
 
-Для этого гайда я скопирую готовые данные из исходника [Sonic-1-in-Sonic-3-S.C.E.-](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega).
+Для этого гайда мы возьмём готовые данные из исходника [Sonic-1-in-Sonic-3-S.C.E.-](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega).
 
-Скопирую в наш `Splash Screen` директории `Enigma Map` и `KosinskiPM Art` из [Screens/Sega/S3K](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega/S3K) (в Sonic-1-in-Sonic-3-S.C.E.- исходнике):
+Скопируем в наш `Splash Screen` директории `Enigma Map` и `KosinskiPM Art` из [Screens/Sega/S3K](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega/S3K) (в Sonic-1-in-Sonic-3-S.C.E.- исходнике):
 
 ```
 📁 S1-in-S3 (корень)
@@ -30,7 +33,7 @@
 	        └── 📁 KosinskiPM Art	<<= КОПИРУЮ
 ```
  
-[Palettes](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select/Palettes "Palettes") скопирую из [Screens/Level Select](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select "Level Select"), который можно найти в родительской директории.
+[Palettes](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select/Palettes "Palettes") скопируем из [Screens/Level Select](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select "Level Select"), который можно найти в родительской директории.
 
 ```
 📁 S.C.E. / S1-in-S3 (корень)
@@ -175,7 +178,7 @@ SplashScreen:
 
 Если не знайте куда влепить эти строки, то вставьте их перед строками **Level Select**.
 
-- Графику в [Kosinski Plus Module Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Kosinski%20Plus%20Module%20Data.asm "Kosinski Plus Module Data.asm"):
+Графику в [Kosinski Plus Module Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Kosinski%20Plus%20Module%20Data.asm "Kosinski Plus Module Data.asm"):
 
 ```m68k
 ; ===========================================================================
@@ -187,7 +190,7 @@ SplashScreen:
 		incfile.b	ArtKosPM_Splash, "Screens/Splash/KosinskiPM Art/Foreground.kospm"
 ```
 
-- Карту в [Enigma Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Enigma%20Data.asm "Enigma Data.asm"):
+Карту в [Enigma Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Enigma%20Data.asm "Enigma Data.asm"):
 
 ```m68k
 ; ===========================================================================
@@ -199,7 +202,7 @@ SplashScreen:
 		incfile.b	MapEni_Splash, "Screens/Splash/Enigma Map/Foreground.eni"
 ```
 
-- Палитры в [Palette Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Palette%20Data.asm "Palette Data.asm"):
+Палитры в [Palette Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Palette%20Data.asm "Palette Data.asm"):
 
 ```m68k
 ; ===========================================================================
@@ -220,7 +223,7 @@ SplashScreen:
 - Красные строки наоборот, вы должны удалить.
 ```
 
-Сначала подключим наш `Screens/Splash Screen/Splash.asm`, добавив его в список includes в [Engine/Includes.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Includes.asm).
+Сначала подключим наш `Screens/Splash Screen/Splash.asm`, добавив его в список includes в [Engine/Includes.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Includes.asm):
 
 ```diff
  ; ---------------------------------------------------------------------------
@@ -243,7 +246,7 @@ SplashScreen:
 
 ```
 
-Дальше в [Engine/Constants.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Constants.asm) добавим наш новый экран в список констант `Game mode routines`
+Дальше в [Engine/Constants.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Constants.asm) добавим наш новый экран в список констант `Game mode routines`:
 
 ```diff
  ; ---------------------------------------------------------------------------
@@ -255,12 +258,12 @@ SplashScreen:
  idstart := 0
 
 +GameModeID_SplashScreen =					id(GameMode_SplashScreen)			; 0
- GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)			; 0
- GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 4
- GameModeID_ContinueScreen =					id(GameMode_ContinueScreen)			; 8
+ GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)	; 4
+ GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 8
+ GameModeID_ContinueScreen =					id(GameMode_ContinueScreen)		; C
 
  GameModeFlag_TitleCard =					7						; flag bit
- GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
+ GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)		; flag mask
 ```
 
 Теперь нужно включить экран **Splash Screen'a** в `Game mode routines`, который находится в [Engine/Core/Security Startup 2.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Core/Security%20Startup%202.asm). Добавим его в список игровых режимов:
@@ -294,7 +297,3 @@ move.b	#GameModeID_SplashScreen,(Game_mode).w
 ```
 
 Вместо **Level Select** теперь первым будет грузиться наш новый **Splash Screen**.
-
-# Посмотреть другие гайды
-
-[Вернуться на главную страницу](../)
