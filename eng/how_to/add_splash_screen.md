@@ -2,9 +2,9 @@
 
 # How to add a new Splash Screen?
 
-First, we need to open the `Screens` folder and create a new folder, for example: `Splash` for our new Splash Screen. Then we need to create a text file and rename it to `Splash.asm`
+First, we need to open the `Screens` folder and create a new folder, for example: `Splash` for our new Splash Screen.
 
-And paste this ready-made code into `Splash.asm`:
+Then we need to create a text file and rename it to `Splash.asm` and paste this ready-made code into `Splash.asm`:
 
 \
 ```asm
