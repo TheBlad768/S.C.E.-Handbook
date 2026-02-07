@@ -373,7 +373,7 @@ fatal error, assembly terminated
 ```
 ## Objects/Main/Egg Capsule/Egg Capsule.asm
 ```diff
-.subindex ; $A, $E, $10 only (sub_866BA, sub_866DA, sub_866EC)
+ .subindex ; $A, $E, $10 only (sub_866BA, sub_866DA, sub_866EC)
 	dc.l sub_866BA ; DEZ
 +	dc.l sub_866BA ; DEZ
 
@@ -425,7 +425,7 @@ fatal error, assembly terminated
 ```
 
 ```diff
-; main text
+ ; main text
  LevelSelect_MainText:
 		levselstr "   DEATH EGG          - ACT 1"
 -		levselstr "   UNKNOWN LEVEL      - UNKNOWN"

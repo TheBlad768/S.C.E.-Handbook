@@ -117,7 +117,7 @@ SplashScreen:
 
 Для графики это [Kosinski Plus Module Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Kosinski%20Plus%20Module%20Data.asm "Kosinski Plus Module Data.asm")
 
-```diff
+```
 ; ===========================================================================
 ; Kosinski Plus Module compressed Splash screen graphics
 ; ===========================================================================
@@ -129,7 +129,7 @@ SplashScreen:
 
 Для маппингов это [Enigma Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Enigma%20Data.asm "Enigma Data.asm")
 
-```diff
+```
 ; ===========================================================================
 ; Enigma compressed Splash screen data
 ; ===========================================================================
@@ -141,7 +141,7 @@ SplashScreen:
 
 Для палитры это [Palette Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Palette%20Data.asm "Palette Data.asm")
 
-```diff
+```
 ; ===========================================================================
 ; Palette Splash screen data
 ; ===========================================================================
