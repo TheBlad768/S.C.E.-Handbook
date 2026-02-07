@@ -2,12 +2,10 @@
 
 Если вы по какой-то причине не хотите использовать функцию деформации из Sonic 3 & Knuckles, то здесь есть альтернативный адаптированный код для S3K/SCE от MarkeyJester.
 
-\
 Вот ссылка на официальный пост на SSRG:
 
 https://sonicresearch.org/community/index.php?threads/how-to-work-with-background-deformation.4607/#post-68237
 
-\
 Здесь адаптированный код `DeformScroll` для SCE:
 
 ```m68k
@@ -66,7 +64,7 @@ DS_Finish:
 		rts						; return
 ```
 
-\
+#
 MarkeyJester также сделал обновлённую версию `DeformScroll`, но никогда не выпускал это официально. Вы можете использовать этот код без каких либо проблем.
 
 ```m68k
@@ -123,7 +121,6 @@ DeformScroll:
 	.Copy:	rts						; done
 ```
 
-\
 Готовые asm библиотеки также лежат в [этой папке](../../_code/deform)
 
 \
