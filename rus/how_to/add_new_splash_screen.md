@@ -18,10 +18,10 @@
 ```
 📁 S.C.E. / S1-in-S3 (корень)
 └── 📁 Screens
-	├── 📁 Continue
-	├── 📁 Level
-	├── 📁 Level Select
-	└── 📁 Splash Screen	<= СОЗДАЙ МЕНЯ 🥺
+    ├── 📁 Continue
+    ├── 📁 Level
+    ├── 📁 Level Select
+    └── 📁 Splash Screen    <= СОЗДАЙ МЕНЯ 🥺
 ```
 
 Для **Splash Screen'а** нужны данные, такие как: _графика, карта, палитра_. В этом гайде мы добавляем уже готовые данные, если вы хотите сделать свою картинку, то вам нужно _создать свои новые файлы_, это уже в гайде `"Как построить план?"`. 
@@ -33,10 +33,10 @@
 ```
 📁 S1-in-S3 (корень)
 └── 📁 Screens
-	└── 📁 Sega
-	    └── 📁 S3K
-	        ├── 📁 Enigma Map		<<= КОПИРУЮ
-	        └── 📁 KosinskiPM Art	<<= КОПИРУЮ
+    └── 📁 Sega
+        └── 📁 S3K
+            ├── 📁 Enigma Map        <<= КОПИРУЮ
+            └── 📁 KosinskiPM Art    <<= КОПИРУЮ
 ```
  
 [Palettes](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select/Palettes "Palettes") скопируем из [Screens/Level Select](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select "Level Select"), который можно найти в родительской директории.
@@ -44,10 +44,10 @@
 ```
 📁 S.C.E. / S1-in-S3 (корень)
 └── 📁 Screens
-	└── 📁 Level Select
-	└── 📁 SCE
-		├── 📁 KosinskiPM Art
-		└── 📁 Palettes	<<= КОПИРУЮ
+    └── 📁 Level Select
+    └── 📁 SCE
+        ├── 📁 KosinskiPM Art
+        └── 📁 Palettes    <<= КОПИРУЮ
 ```
 
 ## Splash.asm
@@ -157,16 +157,16 @@ SplashScreen:
 ```
 📁 S.C.E. / S1-in-S3 (корень)
 └── 📁 Screens
-	├── 📁 Continue
-	├── 📁 Level
-	├── 📁 Level Select
-	└── 📁 Splash Screen
-		├── 📁 Enigma Map
-		│   └── 🗺️ Foreground.eni
+    ├── 📁 Continue
+    ├── 📁 Level
+    ├── 📁 Level Select
+    └── 📁 Splash Screen
+        ├── 📁 Enigma Map
+        │   └── 🗺️ Foreground.eni
 		├── 📁 KosinskiPM Art
-		│   └── 🖼️ Foreground.kospm
+		│   └── 🖼️ Foreground.kospm
 		├── 📁 Palettes
-		│   └── 🎨 1.pal
+		│   └── 🎨 1.pal
 		└── 📄 Splash.asm
 ```
 
@@ -176,10 +176,10 @@ SplashScreen:
 
 ```
 📁 S.C.E. / S1-in-S3 (корень)
-└──	📁 Data
-	├── 📄 Enigma Data.asm
-	├── 📄 Kosinski Plus Module Data.asm
-	└── 📄 Palette Data.asm
+└── 📁 Data
+    ├── 📄 Enigma Data.asm
+    ├── 📄 Kosinski Plus Module Data.asm
+    └── 📄 Palette Data.asm
 ```
 
 Если не знайте куда влепить эти строки, то вставьте их перед строками **Level Select**.
