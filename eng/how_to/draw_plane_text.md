@@ -80,7 +80,7 @@ The `draw_planetext.palette_line_1` flag will change the first line of the palet
 
 `Hello2` will be drawn on the next row and will use a different palette line
 
-The `draw_planetext.end` flag tells the program to stop loading characters and finish executing the program. That is, simply `exit from program`
+The `draw_planetext.end` flag tells the program to stop loading characters and finish executing the program. That is, simply `exit the program`
 
 
 ## View other guides
