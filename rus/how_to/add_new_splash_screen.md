@@ -1,4 +1,4 @@
-# S.C.E.-Tutorials-
+# SONIC-CLEAN-ENGINE-S.C.E.-TUTORIALS-
 
 # Как добавить новый Splash Screen?
 
