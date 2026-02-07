@@ -2,10 +2,8 @@
 
 To display text on a plane, we can use one of the ready-made functions in the SCE library.
 
-\
 The first function is `Draw_PlaneText`, which displays simple text with a size of 8x8 pixels, meaning that the size of a single character cannot exceed one tile.
 
-\
 Using this code is very easy:
 
 ```m68k
@@ -16,10 +14,8 @@ Using this code is very easy:
 		jsr	(Draw_PlaneText).w
 ```
 
-\
 In register `a1` we have the address of our text, in `d1` the address of the plan to which we want to load the text, in `d3` we have the address of the text graphics in VRAM.
 
-\
 We can also use a simple macro:
 
 ```m68k
@@ -27,11 +23,8 @@ We can also use a simple macro:
 		DrawPlaneText	Main_Text, (VRAM_Plane_A_Name_Table+$D38), $50F, 1, FALSE
 ```
 
-\
-\
 The second function is `Draw_PlaneText_Advanced`, which is used to display text of any size, not just 8x8 pixels. But the size of the character must still be a multiple of 8.
 
-\
 Using the code is also very easy:
 
 ```m68k
@@ -48,7 +41,6 @@ Using the code is also very easy:
 		jsr	(Draw_PlaneText).w
 ```
 
-\
 Alternatively, we can use a simple macro:
 
 ```m68k
@@ -56,11 +48,8 @@ Alternatively, we can use a simple macro:
 		DrawPlaneTextAdvanced	Main_Text, (VRAM_Plane_A_Name_Table+$D38), 32, 32, $50F, 1, FALSE
 ```
 
-\
 In register `a1`, we have the address of our text; in `d1`, we have the address of the plan onto which we want to load the text; in `d2`, we need to specify the horizontal and vertical character size; and in `d3`, we have the address of the text graphics in VRAM.
 
-\
-\
 Analysis of additional flags in the text data:
 
 ```m68k
@@ -71,7 +60,6 @@ Main_Text:
 		dc.b draw_planetext.end							; stop loading characters
 ```
 
-\
 `Hello1` will be drawn on the first line of the palette at address $50F in VRAM. The size of the characters in VRAM will be 32x32 pixels (the code works as a mapping function, it does not scale the text itself).
 
 The `draw_planetext.nextline` flag will move the starting position of the plan to the next row.
