@@ -1,4 +1,4 @@
-# SONIC-CLEAN-ENGINE-S.C.E.-
+# S.C.E.-Tutorials-
 
 # Как добавить ещё уровней?
 
@@ -363,7 +363,7 @@ LevelLoadPointer:
  LevelID_NULL =							$FF						; NULL
 ```
 
-# Objects/Main/Animals/Animals.asm
+## Objects/Main/Animals/Animals.asm
 ```diff
 Obj_Animal_ZoneAnimals:
   zoneanimals.b Flicky, Chicken ; DEZ
@@ -371,7 +371,7 @@ Obj_Animal_ZoneAnimals:
 
  zonewarning Obj_Animal_ZoneAnimals,(1*2)
 ```
-# Objects/Main/Egg Capsule/Egg Capsule.asm
+## Objects/Main/Egg Capsule/Egg Capsule.asm
 ```diff
 .subindex ; $A, $E, $10 only (sub_866BA, sub_866DA, sub_866EC)
   dc.l sub_866BA ; DEZ
@@ -475,6 +475,6 @@ fatal error, assembly terminated
 		binclude "Levels/DEZ/Start Location/Knuckles/1.bin"
 ```
 
-## Посмотреть другие гайды
+# Посмотреть другие гайды
 
 [Вернуться на главную страницу](../)

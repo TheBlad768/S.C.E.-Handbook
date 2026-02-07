@@ -1,10 +1,12 @@
-# SONIC-CLEAN-ENGINE-S.C.E.-
+# S.C.E.-Tutorials-
 
 # Как добавить новый Splash Screen?
 
-Для начала нам нужно открыть папку `Screens` и создать новую папку, например: `Splash` для нашего нового Splash Screen.
+# Создание файлов
 
-Затем мы должны создать текстовый файл и переименовать его в `Splash.asm` и вставить этот готовый код в `Splash.asm`:
+Для начала в папке [Screens](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens) создать папку `Splash`. 
+
+Теперь в папке `Splash`  создадим текстовый файл под именем `Splash.asm` и вставим в него этот готовый код:
 
 ```m68k
 ; ---------------------------------------------------------------------------
@@ -102,134 +104,18 @@ SplashScreen:
 		rts
 ```
 
-# Пример изменений
+В качестве примера, в папку `Splash`  я скопирую папки Enigma Map и KosinskiPM Art [отсюда](https://github.com/TheBlad768/Sonic-1-in-Sonic-3-S.C.E.-/tree/flamedriver/Screens/Sega/S3K), а [Palettes](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select/Palettes "Palettes") скопирую из [Level Select](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Screens/Level%20Select "Level Select"). 
 
-```diff
-+ Добавьте зелёные строки, начинающиеся с плюса (сам плюс добавлять не надо).
-- Красные строки наоборот, вы должны удалить.
-```
+Если хотите сделать свою графику для Splash Screen, то вот тут `гайд как это сделать`.
 
-Затем нам нужно открыть `Includes.asm` в основной папке `Engine` и найти список включаемых экранов
+# Прописываем графические данные
 
-```diff
-; ---------------------------------------------------------------------------
-; Level Select screen modules
-; ---------------------------------------------------------------------------
+Сначала нам нужно добавить графические данные для Splash Screen. В папке [Data](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/tree/Clone-Driver-v2/Data "Data") нужно будет добавить это в следующие файлы:
 
-		include "Screens/Level Select/Level Select.asm"
+> [!TIP]
+> Если не знайте куда влепить эти строки, то вставьте их перед строками Level Select
 
-; ---------------------------------------------------------------------------
-; Level screen modules
-; ---------------------------------------------------------------------------
-
-		include "Screens/Level/Level.asm"
-```
-
-Теперь нам нужно добавить наш Splash Screen в этот список `includes`
-
-```diff
-+ ; ---------------------------------------------------------------------------
-+ ; Splash screen modules
-+ ; ---------------------------------------------------------------------------
-+
-+		include "Screens/Splash/Splash.asm"
-
-; ---------------------------------------------------------------------------
-; Level Select screen modules
-; ---------------------------------------------------------------------------
-
-		include "Screens/Level Select/Level Select.asm"
-
-; ---------------------------------------------------------------------------
-; Level screen modules
-; ---------------------------------------------------------------------------
-
-		include "Screens/Level/Level.asm"
-```
-
-Дальше нам нужно открыть `Constants.asm` и добавить наш новый экран в список констант `Game mode routines`
-
-```diff
-; ---------------------------------------------------------------------------
-; Game mode routines
-; ---------------------------------------------------------------------------
-
-offset := Game_Modes
-ptrsize := 1
-idstart := 0
-
-GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)			; 0
-GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 4
-
-GameModeFlag_TitleCard =					7						; flag bit
-GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
-```
-
-Это должно выглядеть так:
-
-```diff
-; ---------------------------------------------------------------------------
-; Game mode routines
-; ---------------------------------------------------------------------------
-
-offset := Game_Modes
-ptrsize := 1
-idstart := 0
-
-+ GameModeID_SplashScreen =					id(GameMode_SplashScreen)			; 0
-GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)			; 4
-GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 8
-
-GameModeFlag_TitleCard =					7						; flag bit
-GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
-```
-
-Теперь нужно включить экран в `Game mode routines`. Это находится по пути `Engine/Core` и нужно открыть `Security Startup 2.asm`
-
-Здесь будет список экранов:
-
-```diff
-; ---------------------------------------------------------------------------
-; Main game mode array
-; ---------------------------------------------------------------------------
-
-Game_Modes:
-		GameModeEntry LevelSelectScreen						; Level Select mode (SCE)
-		GameModeEntry LevelScreen						; Zone play mode
-```
-
-Сделайте так:
-
-```diff
-; ---------------------------------------------------------------------------
-; Main game mode array
-; ---------------------------------------------------------------------------
-
-Game_Modes:
-+		GameModeEntry SplashScreen						; Splash mode
-		GameModeEntry LevelSelectScreen						; Level Select mode (SCE)
-		GameModeEntry LevelScreen						; Zone play mode
-```
-
-Макрос `GameModeEntry` будет использовать вставленную переменную для поиска экрана. Поэтому названия должы быть одинаковые.
-
-Если вы хотите изменить начальный экран загрузки, измените эту строчку кода в том же `Security Startup 2.asm`
-
-```m68k
-		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
-```
-
-На эту строчку кода:
-
-```m68k
-		move.b	#GameModeID_SplashScreen,(Game_mode).w				; set screen mode to Splash Screen
-```
-
-Вместо `Level Select` теперь первым будет грузиться наш новый `Splash Screen`.
-
-Дальше нам нужно добавить графические данные для Splash Screen. Нужно открыть папку `Data` и включить наши новые данные в SCE.
-
-Для графики это `Kosinski Plus Module Data.asm`
+Для графики это [Kosinski Plus Module Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Kosinski%20Plus%20Module%20Data.asm "Kosinski Plus Module Data.asm")
 
 ```diff
 ; ===========================================================================
@@ -241,7 +127,7 @@ Game_Modes:
 		incfile.b	ArtKosPM_Splash, "Screens/Splash/KosinskiPM Art/Foreground.kospm"
 ```
 
-Для маппингов это `Enigma Data.asm`
+Для маппингов это [Enigma Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Enigma%20Data.asm "Enigma Data.asm")
 
 ```diff
 ; ===========================================================================
@@ -253,7 +139,7 @@ Game_Modes:
 		incfile.b	MapEni_Splash, "Screens/Splash/Enigma Map/Foreground.eni"
 ```
 
-Для палитры это `Palette Data.asm`
+Для палитры это [Palette Data.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Data/Palette%20Data.asm "Palette Data.asm")
 
 ```diff
 ; ===========================================================================
@@ -264,10 +150,93 @@ Game_Modes:
 
 		incfile.b	Pal_Splash, "Screens/Splash/Palettes/1.pal"
 ```
+# Изменяем код
 
-Как создавать графические файлы для Splash Screen смотрите в `этом гайде`
+Осталось внести изменения в код: прописать пути к графике и добавить новый игровой режим. Ниже будет инструкция как это сделать или просмотреть изменения в коммите на GitHub [ТУТ](https://github.com/Nichloya/Sonic-Clean-Engine-S.C.E.-Extended-/commit/7b0651c7c2229bdf41811d974231aafbace5bcb5).
+
+```diff
++ Добавьте зелёные строки, начинающиеся с плюса (сам плюс добавлять не надо).
+- Красные строки наоборот, вы должны удалить.
+```
+
+Сначала подключим наш `Splash.asm`, добавив его в список includes в [Engine/Includes.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Includes.asm).
+
+```diff
+; ---------------------------------------------------------------------------
+; Objects data pointers
+; ---------------------------------------------------------------------------
+
+		include "Data/Objects Data.asm"
+
++; ---------------------------------------------------------------------------
++; Splash screen modules
++; ---------------------------------------------------------------------------
++
++		include "Screens/Splash/Splash.asm"
++
+; ---------------------------------------------------------------------------
+; Level Select screen modules
+; ---------------------------------------------------------------------------
+
+		include "Screens/Level Select/Level Select.asm"
+
+```
+
+Дальше в [Engine/Constants.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Constants.asm) добавим наш новый экран в список констант `Game mode routines`
+
+```diff
+; ---------------------------------------------------------------------------
+; Game mode routines
+; ---------------------------------------------------------------------------
+
+offset := Game_Modes
+ptrsize := 1
+idstart := 0
+
++GameModeID_SplashScreen =					id(GameMode_SplashScreen)			; 0
+GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)			; 0
+GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 4
+GameModeID_ContinueScreen =					id(GameMode_ContinueScreen)			; 8
+
+GameModeFlag_TitleCard =					7						; flag bit
+GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
+```
 
 
-## Посмотреть другие гайды
+Теперь нужно включить экран в `Game mode routines`. Это находится в [Engine/Core/Security Startup 2.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Core/Security%20Startup%202.asm)
+
+Добавим его в список игровых режимов:
+
+```diff
+; ---------------------------------------------------------------------------
+; Main game mode array
+; ---------------------------------------------------------------------------
+
+Game_Modes:
++		GameModeEntry SplashScreen						; Splash mode
+		GameModeEntry LevelSelectScreen					; Level Select mode (SCE)
+		GameModeEntry LevelScreen						; Zone play mode
+		GameModeEntry ContinueScreen					; Continue mode
+```
+
+Макрос `GameModeEntry` будет использовать вставленную переменную для поиска экрана. Поэтому названия должы быть одинаковые.
+
+## Меняем начальный режим игры (необязательно)
+
+ Если вы хотите чтобы игра начиналась со Splash Screen, а не Level Select, то измените эту строчку кода в том же `Security Startup 2.asm`
+
+```m68k
+move.b	#GameModeID_LevelSelectScreen,(Game_mode).w
+```
+
+На эту строчку кода:
+
+```m68k
+move.b	#GameModeID_SplashScreen,(Game_mode).w
+```
+
+Вместо `Level Select` теперь первым будет грузиться наш новый `Splash Screen`.
+
+# Посмотреть другие гайды
 
 [Вернуться на главную страницу](../)
