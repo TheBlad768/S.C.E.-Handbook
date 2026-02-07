@@ -6,7 +6,6 @@ First, we need to open the `Screens` folder and create a new folder, for example
 
 Then we need to create a text file and rename it to `Splash.asm` and paste this ready-made code into `Splash.asm`:
 
-\
 ```m68k
 ; ---------------------------------------------------------------------------
 ; Splash Screen
@@ -103,7 +102,6 @@ SplashScreen:
 		rts
 ```
 
-\
 # Example of changes
 
 ```diff
@@ -111,7 +109,6 @@ SplashScreen:
 - Remove the red lines
 ```
 
-\
 Now, we need to open the `Includes.asm` file in the main `Engine` folder and find the list of included screens
 
 ```diff
@@ -128,9 +125,7 @@ Now, we need to open the `Includes.asm` file in the main `Engine` folder and fin
 		include "Screens/Level/Level.asm"
 ```
 
-\
 Now we need to add our Splash Screen to this `includes` list
-
 
 ```diff
 + ; ---------------------------------------------------------------------------
@@ -152,7 +147,6 @@ Now we need to add our Splash Screen to this `includes` list
 		include "Screens/Level/Level.asm"
 ```
 
-\
 Next, we need to open `Constants.asm` and add our new screen to the list of constants `Game mode routines`
 
 ```diff
@@ -171,7 +165,6 @@ GameModeFlag_TitleCard =					7						; flag bit
 GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
-\
 It should look like this now:
 
 ```diff
@@ -191,7 +184,6 @@ GameModeFlag_TitleCard =					7						; flag bit
 GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
-\
 Now you need to include the screen in `Game mode routines`. This is located in `Engine/Core`, and you need to open the `Security Startup 2.asm` file.
 
 Here you will find a list of screens:
@@ -219,10 +211,8 @@ Game_Modes:
 		GameModeEntry LevelScreen						; Zone play mode
 ```
 
-\
 `GameModeEntry` macro will use the inserted variable to search for the screen. Therefore, the names must be identical.
 
-\
 If you want to change the startup screen, change this line of code in the `Security Startup 2.asm` file.
 
 ```m68k
@@ -235,13 +225,10 @@ To this line of code:
 		move.b	#GameModeID_SplashScreen,(Game_mode).w				; set screen mode to Splash Screen
 ```
 
-\
 Instead of `Level Select`, our new `Splash Screen` will now load first.
 
-\
 Next, we need to add graphic data for the Splash Screen. Open the `Data` folder and include our new data in SCE.
 
-\
 For art, this is `Kosinski Plus Module Data.asm`
 
 ```diff
@@ -254,7 +241,6 @@ For art, this is `Kosinski Plus Module Data.asm`
 		incfile.b	ArtKosPM_Splash, "Screens/Splash/KosinskiPM Art/Foreground.kospm"
 ```
 
-\
 For mappings, this is `Enigma Data.asm`
 
 ```diff
@@ -267,7 +253,6 @@ For mappings, this is `Enigma Data.asm`
 		incfile.b	MapEni_Splash, "Screens/Splash/Enigma Map/Foreground.eni"
 ```
 
-\
 For the palette, it is `Palette Data.asm`
 
 ```diff
@@ -280,7 +265,6 @@ For the palette, it is `Palette Data.asm`
 		incfile.b	Pal_Splash, "Screens/Splash/Palettes/1.pal"
 ```
 
-\
 How to create graphic data files for Splash Screen, see `this guide`.
 
 
