@@ -1,4 +1,4 @@
-# SONIC-CLEAN-ENGINE-S.C.E.-
+# SONIC-CLEAN-ENGINE-S.C.E.-TUTORIALS-
 
 To display text on a plane, we can use one of the ready-made functions in the SCE library.
 
