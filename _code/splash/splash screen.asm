@@ -89,5 +89,5 @@ SplashScreen:
 .exit
 
 		; exit
-		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w				; set screen mode to Level Select (SCE)
+		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
 		rts
