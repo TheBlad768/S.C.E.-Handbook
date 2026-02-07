@@ -1,4 +1,4 @@
-# SONIC-CLEAN-ENGINE-S.C.E.-
+# SONIC-CLEAN-ENGINE-S.C.E.-TUTORIALS-
 
 Если вы по какой-то причине не хотите использовать функцию деформации из Sonic 3 & Knuckles, то здесь есть альтернативный адаптированный код для S3K/SCE от MarkeyJester.
 
