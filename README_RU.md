@@ -2,7 +2,7 @@
 
 Здесь вы сможете найти разные гайды для работы с Sonic Clean Engine (S.C.E.).
 
-### [English](README_EN.md) | Русский
+### [English](README.md) | Русский
 
 
 ## Дополнительные ссылки
