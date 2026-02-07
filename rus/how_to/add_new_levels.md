@@ -445,7 +445,7 @@ Assembler failed to execute.
 fatal error, assembly terminated
 ```
 
-Скорее всего вы копируйте уровень из `S.C.E. (Alone)` в `S.C.E.-Extended`/`S3S1` или наоборот, поэтому нужно внести изменения в `/Levels/%имя_зоны%/Pointers/%имя_зоны% - Pointers.asm`, найдите там `; Players palette` и внесите изменения которые представлены ниже.
+Скорее всего вы копируйте уровень из `S.C.E. (Alone)` в `S.C.E.-Extended`/`S1S3` или наоборот, поэтому нужно внести изменения в `/Levels/%имя_зоны%/Pointers/%имя_зоны% - Pointers.asm`, найдите там `; Players palette` и внесите изменения которые представлены ниже.
 ### Если у вас S.C.E. (Alone)
 ```
 		; Sonic palette, Knuckles palette
@@ -459,7 +459,7 @@ fatal error, assembly terminated
 		; Players start location
 		binclude "Levels/AIZ/Start Location/1.bin"
 ```
-### Если у вас S.C.E.-Extended/S3S1
+### Если у вас S.C.E.-Extended/S1S3
 
 ```
 		; Players palette

@@ -445,7 +445,7 @@ Assembler failed to execute.
 fatal error, assembly terminated
 ```
 
-Most likely, you are copying a level from `S.C.E. (Alone)` to `S.C.E.-Extended`/`S3S1` (or vice versa). Therefore, you need to make changes in `/Levels/%zone_name%/Pointers/%zone_name% - Pointers.asm`. Find the `; Players palette` section and apply the changes shown below.
+Most likely, you are copying a level from `S.C.E. (Alone)` to `S.C.E.-Extended`/`S1S3` (or vice versa). Therefore, you need to make changes in `/Levels/%zone_name%/Pointers/%zone_name% - Pointers.asm`. Find the `; Players palette` section and apply the changes shown below.
 ### For S.C.E. (Alone)
 ```
 		; Sonic palette, Knuckles palette
@@ -459,7 +459,7 @@ Most likely, you are copying a level from `S.C.E. (Alone)` to `S.C.E.-Extended`/
 		; Players start location
 		binclude "Levels/AIZ/Start Location/1.bin"
 ```
-### For S.C.E.-Extended/S3S1
+### For S.C.E.-Extended/S1S3
 
 ```
 		; Players palette
