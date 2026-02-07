@@ -6,7 +6,6 @@
 
 Затем мы должны создать текстовый файл и переименовать его в `Splash.asm` и вставить этот готовый код в `Splash.asm`:
 
-\
 ```m68k
 ; ---------------------------------------------------------------------------
 ; Splash Screen
@@ -103,7 +102,6 @@ SplashScreen:
 		rts
 ```
 
-\
 # Пример изменений
 
 ```diff
@@ -111,7 +109,6 @@ SplashScreen:
 - Красные строки наоборот, вы должны удалить.
 ```
 
-\
 Затем нам нужно открыть `Includes.asm` в основной папке `Engine` и найти список включаемых экранов
 
 ```diff
@@ -128,9 +125,7 @@ SplashScreen:
 		include "Screens/Level/Level.asm"
 ```
 
-\
 Теперь нам нужно добавить наш Splash Screen в этот список `includes`
-
 
 ```diff
 + ; ---------------------------------------------------------------------------
@@ -152,7 +147,6 @@ SplashScreen:
 		include "Screens/Level/Level.asm"
 ```
 
-\
 Дальше нам нужно открыть `Constants.asm` и добавить наш новый экран в список констант `Game mode routines`
 
 ```diff
@@ -171,7 +165,6 @@ GameModeFlag_TitleCard =					7						; flag bit
 GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
-\
 Это должно выглядеть так:
 
 ```diff
@@ -191,7 +184,6 @@ GameModeFlag_TitleCard =					7						; flag bit
 GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
-\
 Теперь нужно включить экран в `Game mode routines`. Это находится по пути `Engine/Core` и нужно открыть `Security Startup 2.asm`
 
 Здесь будет список экранов:
@@ -219,10 +211,8 @@ Game_Modes:
 		GameModeEntry LevelScreen						; Zone play mode
 ```
 
-\
 Макрос `GameModeEntry` будет использовать вставленную переменную для поиска экрана. Поэтому названия должы быть одинаковые.
 
-\
 Если вы хотите изменить начальный экран загрузки, измените эту строчку кода в том же `Security Startup 2.asm`
 
 ```m68k
@@ -235,13 +225,10 @@ Game_Modes:
 		move.b	#GameModeID_SplashScreen,(Game_mode).w				; set screen mode to Splash Screen
 ```
 
-\
 Вместо `Level Select` теперь первым будет грузиться наш новый `Splash Screen`.
 
-\
 Дальше нам нужно добавить графические данные для Splash Screen. Нужно открыть папку `Data` и включить наши новые данные в SCE.
 
-\
 Для графики это `Kosinski Plus Module Data.asm`
 
 ```diff
@@ -254,7 +241,6 @@ Game_Modes:
 		incfile.b	ArtKosPM_Splash, "Screens/Splash/KosinskiPM Art/Foreground.kospm"
 ```
 
-\
 Для маппингов это `Enigma Data.asm`
 
 ```diff
@@ -267,7 +253,6 @@ Game_Modes:
 		incfile.b	MapEni_Splash, "Screens/Splash/Enigma Map/Foreground.eni"
 ```
 
-\
 Для палитры это `Palette Data.asm`
 
 ```diff
@@ -280,7 +265,6 @@ Game_Modes:
 		incfile.b	Pal_Splash, "Screens/Splash/Palettes/1.pal"
 ```
 
-\
 Как создавать графические файлы для Splash Screen смотрите в `этом гайде`
 
 
