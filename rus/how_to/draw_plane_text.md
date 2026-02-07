@@ -10,8 +10,8 @@
 
 ```asm
 		; load text
-		lea	Main_Text(pc),a1			; load text address to a1
-		locVRAM	(VRAM_Plane_A_Name_Table+$D38),d1	; set plane address
+		lea	Main_Text(pc),a1			; загрузить адрес текста в a1
+		locVRAM	(VRAM_Plane_A_Name_Table+$D38),d1	; установить адрес на плане
 		move.w	#make_art_tile($50F,1,FALSE),d3		; VRAM (позиция графики, линия палитры, приоритет)
 		jsr	(Draw_PlaneText).w
 ```
@@ -44,7 +44,7 @@
 			bytesToXcnt(((32)+(tile_width-1)),tile_width), \
 			bytesToXcnt(((32)+(tile_height-1)),tile_height) \
 		),d2
-		move.w	#make_art_tile($50F,1,FALSE),d3		; VRAM
+		move.w	#make_art_tile($50F,1,FALSE),d3		; VRAM (позиция графики, линия палитры, приоритет)
 		jsr	(Draw_PlaneText).w
 ```
 
