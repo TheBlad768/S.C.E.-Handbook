@@ -1,4 +1,4 @@
-# SONIC-CLEAN-ENGINE-S.C.E.-
+# SONIC-CLEAN-ENGINE-S.C.E.-TUTORIALS-
 
 If for some reason you don't want to use the deformation code from Sonic 3 & Knuckles, there is an alternative deformation code from MarkeyJester, adapted for S3K/SCE.
 
