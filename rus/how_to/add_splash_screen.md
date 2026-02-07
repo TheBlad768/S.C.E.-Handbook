@@ -2,9 +2,9 @@
 
 # Как добавить новый Splash Screen?
 
-Для начала нам нужно открыть папку `Screens` и создать новую папку например `Splash` с нашим новым Splash Screen. Затем мы должны создать текстовый файл и переименовать его в `Splash.asm`
+Для начала нам нужно открыть папку `Screens` и создать новую папку, например: `Splash` для нашего нового Splash Screen. Затем мы должны создать текстовый файл и переименовать его в `Splash.asm`
 
-И затем вставить этот готовый код:
+И вставить этот готовый код в `Splash.asm`:
 
 \
 ```asm
@@ -99,10 +99,11 @@ SplashScreen:
 .exit
 
 		; exit
-		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w				; set screen mode to Level Select (SCE)
+		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
 		rts
 ```
 
+\
 # Пример изменений
 
 ```diff
@@ -110,6 +111,7 @@ SplashScreen:
 - Красные строки наоборот, вы должны удалить.
 ```
 
+\
 Затем нам нужно открыть `Includes.asm` в основной папке `Engine` и найти список включаемых экранов
 
 ```diff
@@ -126,7 +128,8 @@ SplashScreen:
 		include "Screens/Level/Level.asm"
 ```
 
-Теперь нам нужно добавить наш Splash Screen в этот список includes
+\
+Теперь нам нужно добавить наш Splash Screen в этот список `includes`
 
 
 ```diff
@@ -149,6 +152,7 @@ SplashScreen:
 		include "Screens/Level/Level.asm"
 ```
 
+\
 Дальше нам нужно открыть `Constants.asm` и добавить наш новый экран в список констант Game mode routines
 
 ```diff
@@ -167,7 +171,8 @@ GameModeFlag_TitleCard =					7						; flag bit
 GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
-Это должно выглядеть так
+\
+Это должно выглядеть так:
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -186,9 +191,10 @@ GameModeFlag_TitleCard =					7						; flag bit
 GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
-Теперь нужно включить экран в Game mode routines. Это находится по пути `Engine/Core' и нужно открыть `Security Startup 2.asm`
+\
+Теперь нужно включить экран в `Game mode routines`. Это находится по пути `Engine/Core` и нужно открыть `Security Startup 2.asm`
 
-Здесь будет список экранов
+Здесь будет список экранов:
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -200,7 +206,7 @@ Game_Modes:
 		GameModeEntry LevelScreen						; Zone play mode
 ```
 
-Сделайте так
+Сделайте так:
 
 ```diff
 ; ---------------------------------------------------------------------------
@@ -213,29 +219,30 @@ Game_Modes:
 		GameModeEntry LevelScreen						; Zone play mode
 ```
 
-Макрос GameModeEntry будет использовать вставленную переменную для поиска экрана. Поэтому названия должы быть одинаковые.
+\
+Макрос `GameModeEntry` будет использовать вставленную переменную для поиска экрана. Поэтому названия должы быть одинаковые.
 
-
-Если вы хотите изменить начальный экран загрузки, то измените эту строчку в том же `Security Startup 2.asm`
+\
+Если вы хотите изменить начальный экран загрузки, измените эту строчку кода в том же `Security Startup 2.asm`
 
 ```asm
 		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
 ```
 
-На эту строчку
+На эту строчку кода:
 
 ```asm
-		move.b	#GameModeID_SplashScreen,(Game_mode).w			; set screen mode to Splash Screen
+		move.b	#GameModeID_SplashScreen,(Game_mode).w				; set screen mode to Splash Screen
 ```
 
-Теперь вместо Level Select первым будет грузиться Splash Screen
+\
+Вместо `Level Select` теперь первым будет грузиться наш новый `Splash Screen`
 
 \
-Теперь нужно добавить данные для Splash Screen. Нужно открыть папку `Data` и включить наши данные
+Дальше нам нужно добавить графические данные для Splash Screen. Нужно открыть папку `Data` и включить наши новые данные в SCE
 
 \
 Для графики это `Kosinski Plus Module Data.asm`
-
 
 ```diff
 ; ===========================================================================
@@ -247,8 +254,8 @@ Game_Modes:
 		incfile.b	ArtKosPM_Splash, "Screens/Splash/KosinskiPM Art/Foreground.kospm"
 ```
 
+\
 Для маппингов это `Enigma Data.asm`
-
 
 ```diff
 ; ===========================================================================
@@ -260,7 +267,7 @@ Game_Modes:
 		incfile.b	MapEni_Splash, "Screens/Splash/Enigma Map/Foreground.eni"
 ```
 
-
+\
 Для палитры это `Palette Data.asm`
 
 ```diff
