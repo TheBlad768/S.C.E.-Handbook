@@ -162,9 +162,9 @@ SplashScreen:
 Сначала подключим наш `Splash.asm`, добавив его в список includes в [Engine/Includes.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Includes.asm).
 
 ```diff
-; ---------------------------------------------------------------------------
-; Objects data pointers
-; ---------------------------------------------------------------------------
+ ; ---------------------------------------------------------------------------
+ ; Objects data pointers
+ ; ---------------------------------------------------------------------------
 
 		include "Data/Objects Data.asm"
 
@@ -174,9 +174,9 @@ SplashScreen:
 +
 +		include "Screens/Splash/Splash.asm"
 +
-; ---------------------------------------------------------------------------
-; Level Select screen modules
-; ---------------------------------------------------------------------------
+ ; ---------------------------------------------------------------------------
+ ; Level Select screen modules
+ ; ---------------------------------------------------------------------------
 
 		include "Screens/Level Select/Level Select.asm"
 
@@ -185,21 +185,21 @@ SplashScreen:
 Дальше в [Engine/Constants.asm](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-/blob/Clone-Driver-v2/Engine/Constants.asm) добавим наш новый экран в список констант `Game mode routines`
 
 ```diff
-; ---------------------------------------------------------------------------
-; Game mode routines
-; ---------------------------------------------------------------------------
+ ; ---------------------------------------------------------------------------
+ ; Game mode routines
+ ; ---------------------------------------------------------------------------
 
-offset := Game_Modes
-ptrsize := 1
-idstart := 0
+ offset := Game_Modes
+ ptrsize := 1
+ idstart := 0
 
 +GameModeID_SplashScreen =					id(GameMode_SplashScreen)			; 0
-GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)			; 0
-GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 4
-GameModeID_ContinueScreen =					id(GameMode_ContinueScreen)			; 8
+ GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)			; 0
+ GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 4
+ GameModeID_ContinueScreen =					id(GameMode_ContinueScreen)			; 8
 
-GameModeFlag_TitleCard =					7						; flag bit
-GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
+ GameModeFlag_TitleCard =					7						; flag bit
+ GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 ```
 
 
@@ -208,11 +208,11 @@ GameModeID_TitleCard =						setBit(GameModeFlag_TitleCard)			; flag mask
 Добавим его в список игровых режимов:
 
 ```diff
-; ---------------------------------------------------------------------------
-; Main game mode array
-; ---------------------------------------------------------------------------
+ ; ---------------------------------------------------------------------------
+ ; Main game mode array
+ ; ---------------------------------------------------------------------------
 
-Game_Modes:
+ Game_Modes:
 +		GameModeEntry SplashScreen						; Splash mode
 		GameModeEntry LevelSelectScreen					; Level Select mode (SCE)
 		GameModeEntry LevelScreen						; Zone play mode

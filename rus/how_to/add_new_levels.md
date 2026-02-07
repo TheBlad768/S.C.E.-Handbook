@@ -98,7 +98,7 @@ fatal error, assembly terminated
 ## Data/Levels Data.asm
 
 ```diff
-LevelLoadPointer:
+ LevelLoadPointer:
 		; DEZ
 		include "Levels/DEZ/Pointers/DEZ1 - Pointers.asm"
 		include "Levels/DEZ/Pointers/DEZ2 - Pointers.asm"
@@ -115,11 +115,11 @@ LevelLoadPointer:
 ```
 
 ```diff
-; ===========================================================================
-; Compressed level graphics - tile, primary patterns and block mappings
-; ===========================================================================
+ ; ===========================================================================
+ ; Compressed level graphics - tile, primary patterns and block mappings
+ ; ===========================================================================
 
-;		Attribute	| Filename	| Folder
+ ;		Attribute	| Filename	| Folder
 
 		incfile.b	DEZ_8x8_KosPM, "Levels/DEZ/Tiles/Primary.kospm"
 		incfile.b	DEZ_16x16_Unc, "Levels/DEZ/Blocks/Primary.unc"
@@ -131,22 +131,22 @@ LevelLoadPointer:
 ```
 
 ```diff
-; ===========================================================================
-; Level collision data
-; ===========================================================================
+ ; ===========================================================================
+ ; Level collision data
+ ; ===========================================================================
 
-;		Attribute	| Filename	| Folder
+ ;		Attribute	| Filename	| Folder
 
 		incfile.b	DEZ_Solid_Unc, "Levels/DEZ/Collision/1.unc"		
 +		incfile.b	AIZ_Solid_Unc, "Levels/AIZ/Collision/1.unc"
 ```
 
 ```diff
-; ===========================================================================
-; Level layout data
-; ===========================================================================
+ ; ===========================================================================
+ ; Level layout data
+ ; ===========================================================================
 
-;		Attribute	| Filename	| Folder
+ ;		Attribute	| Filename	| Folder
 
 		incfile.b	DEZ1_Layout_Unc, "Levels/DEZ/Layout/1.unc"
 		incfile.b	DEZ2_Layout_Unc, "Levels/DEZ/Layout/2.unc"
@@ -161,14 +161,14 @@ LevelLoadPointer:
 ```
 
 ```diff
-; ===========================================================================
-; Level objects data
-; ===========================================================================
+ ; ===========================================================================
+ ; Level objects data
+ ; ===========================================================================
 
 		; ObjectTerminat
 		ObjectLayoutBoundary
 
-;		Attribute	| Filename	| Folder
+ ;		Attribute	| Filename	| Folder
 
 		incfile.bo	DEZ1_Objects_Unc, "Levels/DEZ/Object Pos/1.unc"
 		incfile.bo	DEZ2_Objects_Unc, "Levels/DEZ/Object Pos/2.unc"
@@ -183,14 +183,14 @@ LevelLoadPointer:
 
 
 ```diff
-; ===========================================================================
-; Level rings data
-; ===========================================================================
+ ; ===========================================================================
+ ; Level rings data
+ ; ===========================================================================
 
 		; RingTerminat
 		RingLayoutBoundary
 
-;		Attribute	| Filename	| Folder
+ ;		Attribute	| Filename	| Folder
 
 		incfile.br	DEZ1_Rings_Unc, "Levels/DEZ/Ring Pos/1.unc"
 		incfile.br	DEZ2_Rings_Unc, "Levels/DEZ/Ring Pos/2.unc"
@@ -215,22 +215,22 @@ LevelLoadPointer:
 ```
 ## Data/Palette Data.asm
 ```diff
-; ===========================================================================
-; Palette Level screen data
-; ===========================================================================
+ ; ===========================================================================
+ ; Palette Level screen data
+ ; ===========================================================================
 
-;		Attribute	| Filename	| Folder
+ ;		Attribute	| Filename	| Folder
 
 		incfile.be	Pal_DEZ, "Levels/DEZ/Palettes/Death Egg Zone.pal"
 		incfile.be	Pal_WaterDEZ, "Levels/DEZ/Palettes/Water Death Egg Zone.pal"
 +		incfile.be	Pal_AIZ, "Levels/AIZ/Palettes/Angel Island Zone.pal"
 +		incfile.be	Pal_WaterAIZ, "Levels/AIZ/Palettes/Water Angel Island Zone.pal"	
 
-; ===========================================================================
-; Animated palette Level screen data
-; ===========================================================================
+ ; ===========================================================================
+ ; Animated palette Level screen data
+ ; ===========================================================================
 
-;		Attribute	| Filename	| Folder
+ ;		Attribute	| Filename	| Folder
 
 		incfile.b	AnPal_PalDEZ12_1, "Levels/DEZ/Palettes/Animated/Palettes/1.pal"
 		incfile.b	AnPal_PalDEZ12_2, "Levels/DEZ/Palettes/Animated/Palettes/2.pal"
@@ -240,19 +240,19 @@ LevelLoadPointer:
 ## Data/Palette Pointers.asm
 
 ```diff
-; Levels
-  PalPtr_DEZ: palptr Pal_DEZ, 1 ; 2 - DEZ
-  PalPtr_WaterDEZ: palptr Pal_WaterDEZ, 1 ; 3 - Water DEZ
+ ; Levels
+	PalPtr_DEZ: palptr Pal_DEZ, 1 ; 2 - DEZ
+	PalPtr_WaterDEZ: palptr Pal_WaterDEZ, 1 ; 3 - Water DEZ
 + PalPtr_AIZ: palptr Pal_AIZ, 1 ; 2 - AIZ
 + PalPtr_WaterAIZ: palptr Pal_WaterAIZ, 1 ; 3 - Water AIZ
 ```
 
 ## Data/Pattern Load Cues.asm
 ```diff
-  PLCAnimals_DEZ1: plrlistheader
+ PLCAnimals_DEZ1: plrlistheader
   		plreq $580, ArtKosPM_BlueFlicky
    		plreq $592, ArtKosPM_Chicken
-  PLCAnimals_DEZ1_end
+ PLCAnimals_DEZ1_end
 
 + ; ===========================================================================
 + ; Pattern load cues - Angel Island Zone (Before)
@@ -345,18 +345,18 @@ LevelLoadPointer:
 ```
 ## Engine/Constants.asm
 ```diff
-; Levels
-  PalID_DEZ = id(PalPtr_DEZ) ; 2
-  PalID_WaterDEZ = id(PalPtr_WaterDEZ) ; 3
+ ; Levels
+	PalID_DEZ = id(PalPtr_DEZ) ; 2
+	PalID_WaterDEZ = id(PalPtr_WaterDEZ) ; 3
 
-+ PalID_AIZ = id(PalPtr_AIZ) ; 2
-+ PalID_WaterAIZ = id(PalPtr_WaterAIZ) ; 3
++	PalID_AIZ = id(PalPtr_AIZ) ; 2
++	PalID_WaterAIZ = id(PalPtr_WaterAIZ) ; 3
 ```
 
 ```diff
-; ---------------------------------------------------------------------------
-; Levels
-; ---------------------------------------------------------------------------
+ ; ---------------------------------------------------------------------------
+ ; Levels
+ ; ---------------------------------------------------------------------------
 
  LevelID_DEZ =							0						; Death Egg
 +LevelID_AIZ =							0						; Angel Island
@@ -365,44 +365,44 @@ LevelLoadPointer:
 
 ## Objects/Main/Animals/Animals.asm
 ```diff
-Obj_Animal_ZoneAnimals:
-  zoneanimals.b Flicky, Chicken ; DEZ
-+ zoneanimals.b Flicky, Chicken ;
+ Obj_Animal_ZoneAnimals:
+	zoneanimals.b Flicky, Chicken ; DEZ
++	zoneanimals.b Flicky, Chicken ;
 
- zonewarning Obj_Animal_ZoneAnimals,(1*2)
+	zonewarning Obj_Animal_ZoneAnimals,(1*2)
 ```
 ## Objects/Main/Egg Capsule/Egg Capsule.asm
 ```diff
 .subindex ; $A, $E, $10 only (sub_866BA, sub_866DA, sub_866EC)
-  dc.l sub_866BA ; DEZ
-+ dc.l sub_866BA ; DEZ
+	dc.l sub_866BA ; DEZ
++	dc.l sub_866BA ; DEZ
 
- zonewarning .subindex,(1*4)
+	zonewarning .subindex,(1*4)
 ```
 ## Objects/Main/Title Card/Text Data/VRAM - Text.asm
 ```diff
-TitleCardLetters_Index: offsetTable
+ TitleCardLetters_Index: offsetTable
 		offsetTableEntry.w TitleCard_DEZ	; 0
 		offsetTableEntry.w TitleCard_AIZ	; 0
 
 		zonewarning TitleCardLetters_Index,(1*2)
 
-; find unique letters and load it to VRAM
-TitleCard_DEZ:		titlecardLetters FALSE, "DEATH EGG"
+ ; find unique letters and load it to VRAM
+ TitleCard_DEZ:		titlecardLetters FALSE, "DEATH EGG"
 	even
 +TitleCard_AIZ:		titlecardLetters FALSE, "DEATH EGG"
 +	even
 ```
 ## Screens/Level Select/Level Setup.asm
 ```diff
-; Variables
-  LevelSelect_ZoneCount:			= ZoneCount
-  LevelSelect_ActDEZCount:		= 4						; DEZ
-+ LevelSelect_ActAIZCount:		= 4						; AIZ
+ ; Variables
+	LevelSelect_ZoneCount:			= ZoneCount
+	LevelSelect_ActDEZCount:		= 4						; DEZ
++	LevelSelect_ActAIZCount:		= 4						; AIZ
 ```
 
 ```diff
-.maxacts
+ .maxacts
 		dc.w LevelSelect_ActDEZCount-1	; DEZ
 +		dc.w LevelSelect_ActAIZCount-1	; AIZ
 
@@ -410,7 +410,7 @@ TitleCard_DEZ:		titlecardLetters FALSE, "DEATH EGG"
 ```
 
 ```diff
-LevelSelect_ActTextIndex: offsetTable
+ LevelSelect_ActTextIndex: offsetTable
 		offsetTableEntry.w LevelSelect_LoadAct1		; DEZ1
 		offsetTableEntry.w LevelSelect_LoadAct2		; DEZ2
 		offsetTableEntry.w LevelSelect_LoadAct3		; DEZ3
@@ -426,7 +426,7 @@ LevelSelect_ActTextIndex: offsetTable
 
 ```diff
 ; main text
-LevelSelect_MainText:
+ LevelSelect_MainText:
 		levselstr "   DEATH EGG          - ACT 1"
 -		levselstr "   UNKNOWN LEVEL      - UNKNOWN"
 +		levselstr "   ANGEL ISLAND       - ACT 1"
